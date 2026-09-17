@@ -1,7 +1,17 @@
-// =====================================
+// ==========================================
 // SHIVA PRACTICE AI
-// Main JavaScript
-// =====================================
+// Class 10 CBSE Practice System
+// ==========================================
+
+
+// ------------------------------------------
+// ELEMENTS
+// ------------------------------------------
+
+const subjectSelect = document.getElementById("subject");
+const chapterSelect = document.getElementById("chapter");
+const questionTypeSelect = document.getElementById("questionType");
+const questionCountSelect = document.getElementById("questionCount");
 
 const startButton = document.getElementById("startPractice");
 
@@ -30,9 +40,9 @@ const difficultyButtons =
     document.querySelectorAll(".difficulty");
 
 
-// =====================================
-// DIFFICULTY SELECTION
-// =====================================
+// ------------------------------------------
+// DIFFICULTY
+// ------------------------------------------
 
 let selectedDifficulty = "";
 
@@ -46,29 +56,170 @@ difficultyButtons.forEach(button => {
 
         button.classList.add("selected");
 
-        selectedDifficulty = button.textContent.trim();
+        selectedDifficulty =
+            button.textContent.trim();
 
     });
 
 });
 
 
-// =====================================
-// DEMO QUESTION BANK
-// =====================================
+// ------------------------------------------
+// CLASS 10 CBSE CHAPTERS
+// ------------------------------------------
+
+const chapters = {
+
+    science: [
+        "Chemical Reactions and Equations",
+        "Acids, Bases and Salts",
+        "Metals and Non-metals",
+        "Carbon and Its Compounds",
+        "Life Processes",
+        "Control and Coordination",
+        "How do Organisms Reproduce?",
+        "Heredity",
+        "Light – Reflection and Refraction",
+        "The Human Eye and the Colourful World",
+        "Electricity",
+        "Magnetic Effects of Electric Current",
+        "Our Environment"
+    ],
+
+    maths: [
+        "Real Numbers",
+        "Polynomials",
+        "Pair of Linear Equations in Two Variables",
+        "Quadratic Equations",
+        "Arithmetic Progressions",
+        "Triangles",
+        "Coordinate Geometry",
+        "Introduction to Trigonometry",
+        "Some Applications of Trigonometry",
+        "Circles",
+        "Areas Related to Circles",
+        "Surface Areas and Volumes",
+        "Statistics",
+        "Probability"
+    ],
+
+    "social-science": [
+        "The Rise of Nationalism in Europe",
+        "Nationalism in India",
+        "The Making of a Global World",
+        "The Age of Industrialisation",
+        "Print Culture and the Modern World",
+        "Resources and Development",
+        "Forest and Wildlife Resources",
+        "Water Resources",
+        "Agriculture",
+        "Minerals and Energy Resources",
+        "Manufacturing Industries",
+        "Lifelines of National Economy",
+        "Power Sharing",
+        "Federalism",
+        "Gender, Religion and Caste",
+        "Political Parties",
+        "Outcomes of Democracy",
+        "Development",
+        "Sectors of the Indian Economy",
+        "Money and Credit",
+        "Globalisation and the Indian Economy",
+        "Consumer Rights"
+    ],
+
+    english: [
+        "A Letter to God",
+        "Nelson Mandela: Long Walk to Freedom",
+        "Two Stories About Flying",
+        "From the Diary of Anne Frank",
+        "Glimpses of India",
+        "Mijbil the Otter",
+        "Madam Rides the Bus",
+        "The Sermon at Benares",
+        "The Proposal",
+        "Dust of Snow",
+        "Fire and Ice",
+        "A Tiger in the Zoo",
+        "How to Tell Wild Animals",
+        "The Ball Poem",
+        "Amanda!",
+        "The Trees",
+        "Fog",
+        "The Tale of Custard the Dragon",
+        "For Anne Gregory"
+    ],
+
+    hindi: [
+        "सूरदास",
+        "राम-लक्ष्मण-परशुराम संवाद",
+        "आत्मकथ्य",
+        "उत्साह और अट नहीं रही",
+        "यह दंतुरित मुस्कान और फसल",
+        "संगतकार",
+        "नेताजी का चश्मा",
+        "बालगोबिन भगत",
+        "लखनवी अंदाज़",
+        "मानवीय करुणा की दिव्य चमक",
+        "एक कहानी यह भी",
+        "नौबतखाने में इबादत",
+        "संस्कृति"
+    ]
+
+};
+
+
+// ------------------------------------------
+// UPDATE CHAPTERS
+// ------------------------------------------
+
+subjectSelect.addEventListener("change", () => {
+
+    const subject = subjectSelect.value;
+
+    chapterSelect.innerHTML =
+        '<option value="">Choose Chapter</option>';
+
+    if (!chapters[subject]) return;
+
+    chapters[subject].forEach((chapter, index) => {
+
+        const option =
+            document.createElement("option");
+
+        option.value = chapter;
+
+        option.textContent =
+            `${index + 1}. ${chapter}`;
+
+        chapterSelect.appendChild(option);
+
+    });
+
+});
+
+
+// ------------------------------------------
+// QUESTION DATABASE
+// ------------------------------------------
+//
+// Demo questions for testing.
+// Later this database will be replaced/
+// expanded with AI-generated questions.
+// ------------------------------------------
 
 const questionBank = {
 
     mcq: [
 
         {
-            question: "What is the chemical formula of water?",
+            q: "What is the chemical formula of water?",
             options: ["CO₂", "H₂O", "O₂", "H₂"],
             answer: "H₂O"
         },
 
         {
-            question: "Which organelle is known as the powerhouse of the cell?",
+            q: "Which organelle is known as the powerhouse of the cell?",
             options: [
                 "Nucleus",
                 "Ribosome",
@@ -79,7 +230,7 @@ const questionBank = {
         },
 
         {
-            question: "What is the SI unit of electric current?",
+            q: "What is the SI unit of electric current?",
             options: [
                 "Volt",
                 "Ohm",
@@ -90,18 +241,7 @@ const questionBank = {
         },
 
         {
-            question: "Which gas is released during photosynthesis?",
-            options: [
-                "Carbon dioxide",
-                "Oxygen",
-                "Nitrogen",
-                "Hydrogen"
-            ],
-            answer: "Oxygen"
-        },
-
-        {
-            question: "The pH of a neutral solution is:",
+            q: "The pH of a neutral solution is:",
             options: [
                 "0",
                 "5",
@@ -109,64 +249,347 @@ const questionBank = {
                 "14"
             ],
             answer: "7"
+        },
+
+        {
+            q: "Which gas is released during photosynthesis?",
+            options: [
+                "Carbon dioxide",
+                "Oxygen",
+                "Nitrogen",
+                "Hydrogen"
+            ],
+            answer: "Oxygen"
         }
 
     ],
+
 
     fillups: [
 
         {
-            question: "The basic unit of life is the ________.",
+            q: "The basic unit of life is the ________.",
             answer: "cell"
         },
 
         {
-            question: "The process by which green plants prepare food is called ________.",
+            q: "The process by which green plants prepare food is called ________.",
             answer: "photosynthesis"
         },
 
         {
-            question: "The SI unit of force is ________.",
+            q: "The SI unit of force is ________.",
             answer: "newton"
         },
 
         {
-            question: "A substance with pH less than 7 is generally ________.",
-            answer: "acidic"
+            q: "The control centre of the cell is the ________.",
+            answer: "nucleus"
         },
 
         {
-            question: "The control centre of the cell is the ________.",
-            answer: "nucleus"
+            q: "A substance having pH less than 7 is generally ________.",
+            answer: "acidic"
         }
 
     ],
 
+
     truefalse: [
 
         {
-            question: "The Sun is a star.",
+            q: "The Sun is a star.",
             answer: "true"
         },
 
         {
-            question: "Plants release carbon dioxide during photosynthesis.",
+            q: "Plants release carbon dioxide during photosynthesis.",
             answer: "false"
         },
 
         {
-            question: "The SI unit of force is Newton.",
+            q: "The SI unit of force is Newton.",
             answer: "true"
         },
 
         {
-            question: "All acids are solid at room temperature.",
+            q: "All acids are solid at room temperature.",
             answer: "false"
         },
 
         {
-            question: "Mitochondria are present in cells.",
+            q: "Mitochondria are present in cells.",
             answer: "true"
+        }
+
+    ],
+
+
+    oneword: [
+
+        {
+            q: "What is the SI unit of force?",
+            answer: "newton"
+        },
+
+        {
+            q: "Which organelle controls the activities of a cell?",
+            answer: "nucleus"
+        },
+
+        {
+            q: "What is the process of making food in plants called?",
+            answer: "photosynthesis"
+        },
+
+        {
+            q: "What is the SI unit of electric current?",
+            answer: "ampere"
+        },
+
+        {
+            q: "Which gas is essential for respiration?",
+            answer: "oxygen"
+        }
+
+    ],
+
+
+    "very-short": [
+
+        {
+            q: "Define photosynthesis.",
+            answer: "Photosynthesis is the process by which green plants prepare food using sunlight."
+        },
+
+        {
+            q: "What is an acid?",
+            answer: "An acid is a substance that produces hydrogen ions in aqueous solution."
+        },
+
+        {
+            q: "What is force?",
+            answer: "Force is a push or pull acting on an object."
+        },
+
+        {
+            q: "What is a cell?",
+            answer: "A cell is the basic structural and functional unit of life."
+        },
+
+        {
+            q: "What is reflection of light?",
+            answer: "Reflection is the bouncing back of light from a surface."
+        }
+
+    ],
+
+
+    short: [
+
+        {
+            q: "Explain why photosynthesis is important for living organisms.",
+            answer: "Photosynthesis produces food and releases oxygen, making it essential for life."
+        },
+
+        {
+            q: "Differentiate between acids and bases.",
+            answer: "Acids generally produce hydrogen ions in water, while bases produce hydroxide ions."
+        },
+
+        {
+            q: "What are the main functions of the cell membrane?",
+            answer: "It protects the cell and controls the movement of substances into and out of the cell."
+        },
+
+        {
+            q: "Explain the difference between speed and velocity.",
+            answer: "Speed is distance travelled per unit time, while velocity is displacement per unit time in a specified direction."
+        },
+
+        {
+            q: "What is electric current?",
+            answer: "Electric current is the rate of flow of electric charge through a conductor."
+        }
+
+    ],
+
+
+    long: [
+
+        {
+            q: "Explain the process of photosynthesis in detail.",
+            answer: "Green plants use sunlight, carbon dioxide and water to prepare glucose in the presence of chlorophyll and release oxygen."
+        },
+
+        {
+            q: "Explain the different types of chemical reactions with examples.",
+            answer: "Chemical reactions include combination, decomposition, displacement and double displacement reactions."
+        },
+
+        {
+            q: "Explain the structure and functions of the human heart.",
+            answer: "The human heart is a muscular organ with four chambers that pumps blood throughout the body."
+        },
+
+        {
+            q: "Explain Ohm's law and its mathematical expression.",
+            answer: "Ohm's law states that current through a conductor is directly proportional to potential difference when temperature remains constant. V = IR."
+        },
+
+        {
+            q: "Explain the causes and effects of environmental pollution.",
+            answer: "Pollution results from harmful substances entering the environment and can affect air, water, soil and living organisms."
+        }
+
+    ],
+
+
+    assertion: [
+
+        {
+            q: "Assertion: Plants perform photosynthesis. Reason: Chlorophyll helps plants absorb sunlight.",
+            answer: "Both Assertion and Reason are true, and the Reason explains the Assertion."
+        },
+
+        {
+            q: "Assertion: Electric current produces a magnetic field. Reason: Moving charges can produce magnetic effects.",
+            answer: "Both Assertion and Reason are true, and the Reason explains the Assertion."
+        },
+
+        {
+            q: "Assertion: Acids turn blue litmus red. Reason: Acids have acidic properties.",
+            answer: "Both Assertion and Reason are true."
+        },
+
+        {
+            q: "Assertion: The nucleus controls cell activities. Reason: It contains genetic material.",
+            answer: "Both Assertion and Reason are true, and the Reason explains the Assertion."
+        },
+
+        {
+            q: "Assertion: Metals are generally good conductors of electricity. Reason: Metals contain free electrons.",
+            answer: "Both Assertion and Reason are true, and the Reason explains the Assertion."
+        }
+
+    ],
+
+
+    match: [
+
+        {
+            q: "Match: Cell → ?",
+            options: [
+                "Basic unit of life",
+                "Powerhouse of ecosystem",
+                "Unit of force",
+                "Unit of current"
+            ],
+            answer: "Basic unit of life"
+        },
+
+        {
+            q: "Match: Newton → ?",
+            options: [
+                "Force",
+                "Current",
+                "Power",
+                "Resistance"
+            ],
+            answer: "Force"
+        },
+
+        {
+            q: "Match: Ampere → ?",
+            options: [
+                "Electric current",
+                "Force",
+                "Energy",
+                "Pressure"
+            ],
+            answer: "Electric current"
+        },
+
+        {
+            q: "Match: Chlorophyll → ?",
+            options: [
+                "Absorbs sunlight",
+                "Controls heartbeat",
+                "Produces sound",
+                "Stores minerals"
+            ],
+            answer: "Absorbs sunlight"
+        },
+
+        {
+            q: "Match: Nucleus → ?",
+            options: [
+                "Controls cell activities",
+                "Produces light",
+                "Moves blood",
+                "Digests food"
+            ],
+            answer: "Controls cell activities"
+        }
+
+    ],
+
+
+    "case-based": [
+
+        {
+            q: "A student places a green plant in sunlight. The plant uses carbon dioxide and water to prepare food. Which process is taking place?",
+            options: [
+                "Respiration",
+                "Photosynthesis",
+                "Digestion",
+                "Transpiration"
+            ],
+            answer: "Photosynthesis"
+        },
+
+        {
+            q: "A circuit contains a battery, switch and bulb. When the switch is closed, the bulb glows. What is flowing through the circuit?",
+            options: [
+                "Electric current",
+                "Sound",
+                "Light only",
+                "Heat only"
+            ],
+            answer: "Electric current"
+        },
+
+        {
+            q: "A student adds an acid to a base and observes a reaction. Which type of reaction is this?",
+            options: [
+                "Neutralisation",
+                "Combustion",
+                "Decomposition",
+                "Displacement"
+            ],
+            answer: "Neutralisation"
+        },
+
+        {
+            q: "A ray of light falls on a plane mirror and bounces back. What phenomenon is observed?",
+            options: [
+                "Refraction",
+                "Reflection",
+                "Dispersion",
+                "Absorption"
+            ],
+            answer: "Reflection"
+        },
+
+        {
+            q: "A plant kept without sufficient sunlight grows poorly. Which factor is mainly responsible?",
+            options: [
+                "Lack of sunlight",
+                "Excess oxygen",
+                "Excess nitrogen",
+                "Lack of sound"
+            ],
+            answer: "Lack of sunlight"
         }
 
     ]
@@ -174,9 +597,9 @@ const questionBank = {
 };
 
 
-// =====================================
+// ------------------------------------------
 // PRACTICE VARIABLES
-// =====================================
+// ------------------------------------------
 
 let currentQuestions = [];
 
@@ -184,46 +607,44 @@ let currentQuestionIndex = 0;
 
 let score = 0;
 
-let questionCount = 5;
+let currentQuestionType = "";
+
+let answered = false;
 
 
-// =====================================
+// ------------------------------------------
 // START PRACTICE
-// =====================================
+// ------------------------------------------
 
 startButton.addEventListener("click", () => {
 
-    const subject =
-        document.getElementById("subject").value;
+    const subject = subjectSelect.value;
 
-    const chapter =
-        document.getElementById("chapter").value;
+    const chapter = chapterSelect.value;
 
-    const questionType =
-        document.getElementById("questionType").value;
+    const type = questionTypeSelect.value;
 
-    questionCount =
-        Number(
-            document.getElementById("questionCount").value
-        );
+    const count =
+        Number(questionCountSelect.value);
 
-
-    // Validation
 
     if (!subject) {
         alert("Please select a subject.");
         return;
     }
 
+
     if (!chapter) {
         alert("Please select a chapter.");
         return;
     }
 
-    if (!questionType) {
+
+    if (!type) {
         alert("Please select a practice type.");
         return;
     }
+
 
     if (!selectedDifficulty) {
         alert("Please select a difficulty level.");
@@ -231,57 +652,90 @@ startButton.addEventListener("click", () => {
     }
 
 
-    // Get questions
-
-    let selectedQuestions =
-        questionBank[questionType];
-
-
-    // If question type is not available yet
-
-    if (!selectedQuestions) {
-
-        alert(
-            "This practice type will be added in the next update."
-        );
-
-        return;
-    }
-
-
-    // Shuffle questions
-
-    selectedQuestions =
-        [...selectedQuestions].sort(
-            () => Math.random() - 0.5
-        );
-
-
-    // Select required number
-
-    currentQuestions =
-        selectedQuestions.slice(
-            0,
-            Math.min(questionCount, selectedQuestions.length)
-        );
-
-
-    currentQuestionIndex = 0;
+    currentQuestionType = type;
 
     score = 0;
 
-    scoreDisplay.textContent = score;
+    currentQuestionIndex = 0;
+
+    answered = false;
 
 
-    // Hide setup
+    // --------------------------------------
+    // MIXED PRACTICE
+    // --------------------------------------
 
-    document.querySelector(".hero").style.display = "none";
+    if (type === "mixed") {
 
-    document.querySelector(".practice-box").style.display = "none";
+        const allQuestions = [];
 
-    resultArea.style.display = "none";
+        Object.keys(questionBank).forEach(key => {
 
-    practiceArea.style.display = "block";
+            questionBank[key].forEach(question => {
+
+                allQuestions.push({
+                    ...question,
+                    type: key
+                });
+
+            });
+
+        });
+
+
+        currentQuestions =
+            shuffleArray(allQuestions)
+                .slice(0, count);
+
+    }
+
+
+    // --------------------------------------
+    // NORMAL PRACTICE TYPE
+    // --------------------------------------
+
+    else {
+
+        const bank =
+            questionBank[type];
+
+        if (!bank || bank.length === 0) {
+
+            alert("Questions are not available yet.");
+
+            return;
+        }
+
+
+        currentQuestions =
+            shuffleArray([...bank])
+                .slice(
+                    0,
+                    Math.min(count, bank.length)
+                );
+
+    }
+
+
+    // --------------------------------------
+    // SHOW PRACTICE
+    // --------------------------------------
+
+    document.querySelector(".hero").style.display =
+        "none";
+
+    document.querySelector(".practice-box").style.display =
+        "none";
+
+    resultArea.style.display =
+        "none";
+
+    practiceArea.style.display =
+        "block";
+
+
+    scoreDisplay.textContent =
+        score;
 
 
     showQuestion();
@@ -289,9 +743,9 @@ startButton.addEventListener("click", () => {
 });
 
 
-// =====================================
+// ------------------------------------------
 // SHOW QUESTION
-// =====================================
+// ------------------------------------------
 
 function showQuestion() {
 
@@ -299,28 +753,48 @@ function showQuestion() {
         currentQuestions[currentQuestionIndex];
 
 
+    if (!question) return;
+
+
+    answered = false;
+
+
     questionNumber.textContent =
         `Question ${currentQuestionIndex + 1} / ${currentQuestions.length}`;
 
 
-    // MCQ
+    let type =
+        currentQuestionType;
+
+
+    if (type === "mixed") {
+        type = question.type;
+    }
+
+
+    // --------------------------------------
+    // MCQ / MATCH / CASE BASED
+    // --------------------------------------
 
     if (
-        document.getElementById("questionType").value === "mcq"
+        type === "mcq" ||
+        type === "match" ||
+        type === "case-based"
     ) {
 
         questionContainer.innerHTML = `
 
             <div class="question">
-                ${question.question}
+                ${question.q}
             </div>
 
             <div class="options">
 
                 ${question.options.map(option => `
-                    
-                    <button class="option"
-                        onclick="checkMCQ('${escapeText(option)}')">
+
+                    <button
+                        class="option"
+                        data-answer="${escapeHTML(option)}">
 
                         ${option}
 
@@ -332,19 +806,34 @@ function showQuestion() {
 
         `;
 
+
+        document
+            .querySelectorAll(".option")
+            .forEach(button => {
+
+                button.addEventListener("click", () => {
+
+                    checkOption(
+                        button.dataset.answer
+                    );
+
+                });
+
+            });
+
     }
 
 
-    // Fill in the blanks
+    // --------------------------------------
+    // FILL UPS
+    // --------------------------------------
 
-    else if (
-        document.getElementById("questionType").value === "fillups"
-    ) {
+    else if (type === "fillups") {
 
         questionContainer.innerHTML = `
 
             <div class="question">
-                ${question.question}
+                ${question.q}
             </div>
 
             <input
@@ -352,267 +841,4 @@ function showQuestion() {
                 type="text"
                 placeholder="Type your answer..."
                 style="
-                    width:100%;
-                    padding:14px;
-                    border-radius:10px;
-                    border:1px solid #353b68;
-                    background:#080b18;
-                    color:white;
-                    font-size:16px;
-                    outline:none;
-                "
-            >
-
-            <button
-                class="start-btn"
-                onclick="checkFillup()">
-
-                Check Answer
-
-            </button>
-
-        `;
-
-    }
-
-
-    // True / False
-
-    else if (
-        document.getElementById("questionType").value === "truefalse"
-    ) {
-
-        questionContainer.innerHTML = `
-
-            <div class="question">
-                ${question.question}
-            </div>
-
-            <button
-                class="option"
-                onclick="checkTrueFalse('true')">
-
-                True
-
-            </button>
-
-            <button
-                class="option"
-                onclick="checkTrueFalse('false')">
-
-                False
-
-            </button>
-
-        `;
-
-    }
-
-}
-
-
-// =====================================
-// MCQ CHECK
-// =====================================
-
-function checkMCQ(answer) {
-
-    const correctAnswer =
-        currentQuestions[currentQuestionIndex].answer;
-
-    if (answer === correctAnswer) {
-
-        score++;
-
-        scoreDisplay.textContent = score;
-
-        alert("Correct! ✅");
-
-    } else {
-
-        alert(
-            `Wrong ❌\nCorrect answer: ${correctAnswer}`
-        );
-
-    }
-
-    nextQuestion();
-
-}
-
-
-// =====================================
-// FILL UP CHECK
-// =====================================
-
-function checkFillup() {
-
-    const input =
-        document.getElementById("answerInput");
-
-    const userAnswer =
-        input.value.trim().toLowerCase();
-
-    const correctAnswer =
-        currentQuestions[currentQuestionIndex]
-            .answer
-            .toLowerCase();
-
-
-    if (userAnswer === correctAnswer) {
-
-        score++;
-
-        scoreDisplay.textContent = score;
-
-        alert("Correct! ✅");
-
-    } else {
-
-        alert(
-            `Wrong ❌\nCorrect answer: ${correctAnswer}`
-        );
-
-    }
-
-    nextQuestion();
-
-}
-
-
-// =====================================
-// TRUE / FALSE CHECK
-// =====================================
-
-function checkTrueFalse(answer) {
-
-    const correctAnswer =
-        currentQuestions[currentQuestionIndex].answer;
-
-    if (answer === correctAnswer) {
-
-        score++;
-
-        scoreDisplay.textContent = score;
-
-        alert("Correct! ✅");
-
-    } else {
-
-        alert(
-            `Wrong ❌\nCorrect answer: ${correctAnswer}`
-        );
-
-    }
-
-    nextQuestion();
-
-}
-
-
-// =====================================
-// NEXT QUESTION
-// =====================================
-
-function nextQuestion() {
-
-    currentQuestionIndex++;
-
-
-    if (
-        currentQuestionIndex >=
-        currentQuestions.length
-    ) {
-
-        finishPractice();
-
-        return;
-    }
-
-
-    setTimeout(() => {
-
-        showQuestion();
-
-    }, 300);
-
-}
-
-
-// =====================================
-// FINISH PRACTICE
-// =====================================
-
-function finishPractice() {
-
-    practiceArea.style.display = "none";
-
-    resultArea.style.display = "block";
-
-    finalScore.textContent =
-        `${score} / ${currentQuestions.length}`;
-
-
-    const percentage =
-        (score / currentQuestions.length) * 100;
-
-
-    if (percentage === 100) {
-
-        resultMessage.textContent =
-            "Perfect Score! 🔥 Excellent work!";
-
-    }
-
-    else if (percentage >= 70) {
-
-        resultMessage.textContent =
-            "Great job! Keep practicing. 💪";
-
-    }
-
-    else if (percentage >= 40) {
-
-        resultMessage.textContent =
-            "Good attempt! Practice more to improve. 📚";
-
-    }
-
-    else {
-
-        resultMessage.textContent =
-            "Keep learning and try again! 🚀";
-
-    }
-
-}
-
-
-// =====================================
-// NEW PRACTICE
-// =====================================
-
-newPractice.addEventListener("click", () => {
-
-    resultArea.style.display = "none";
-
-    practiceArea.style.display = "none";
-
-    document.querySelector(".hero").style.display = "block";
-
-    document.querySelector(".practice-box").style.display = "block";
-
-});
-
-
-// =====================================
-// TEXT SAFETY
-// =====================================
-
-function escapeText(text) {
-
-    return text
-        .replace(/'/g, "\\'")
-        .replace(/"/g, '\\"');
-
-    }
+                    width:1
