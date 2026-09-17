@@ -1,0 +1,265 @@
+
+/* =====================================
+   SHIVA PRACTICE AI
+   Professional Dark UI
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080b18;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Header */
+
+.header {
+    text-align: center;
+    padding: 30px 15px;
+    background: linear-gradient(135deg, #111936, #17102e);
+    border-bottom: 1px solid #292d52;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.logo span {
+    color: #8b5cf6;
+}
+
+.header p {
+    color: #a7afd0;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* Main Container */
+
+.container {
+    width: 92%;
+    max-width: 850px;
+    margin: auto;
+    padding: 25px 0;
+}
+
+/* Hero Section */
+
+.hero {
+    text-align: center;
+    padding: 25px 10px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    line-height: 1.3;
+}
+
+.hero h1 span {
+    color: #8b5cf6;
+}
+
+.hero p {
+    color: #a7afd0;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* Practice Box */
+
+.practice-box {
+    background: #11162b;
+    border: 1px solid #292d52;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 0 30px rgba(75, 50, 160, 0.15);
+}
+
+.practice-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Input Groups */
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #c7cbea;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #353b68;
+    background: #080b18;
+    color: #ffffff;
+    font-size: 15px;
+    outline: none;
+}
+
+select:focus {
+    border-color: #8b5cf6;
+}
+
+/* Difficulty Buttons */
+
+.difficulty-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.difficulty {
+    flex: 1;
+    padding: 13px;
+    border: 1px solid #353b68;
+    border-radius: 10px;
+    background: #080b18;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.difficulty:hover {
+    background: #8b5cf6;
+    border-color: #8b5cf6;
+}
+
+.difficulty.selected {
+    background: #8b5cf6;
+    border-color: #8b5cf6;
+}
+
+/* Start Button */
+
+.start-btn {
+    width: 100%;
+    padding: 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(139, 92, 246, 0.35);
+}
+
+/* Practice Area */
+
+.practice-area {
+    display: none;
+    margin-top: 25px;
+    background: #11162b;
+    border: 1px solid #292d52;
+    border-radius: 18px;
+    padding: 25px;
+}
+
+.practice-header {
+    display: flex;
+    justify-content: space-between;
+    color: #a7afd0;
+    margin-bottom: 20px;
+}
+
+/* Question */
+
+.question {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 14px;
+    margin: 10px 0;
+    background: #080b18;
+    border: 1px solid #353b68;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.option:hover {
+    border-color: #8b5cf6;
+}
+
+/* Result Area */
+
+.result-area {
+    display: none;
+    text-align: center;
+    background: #11162b;
+    border: 1px solid #292d52;
+    border-radius: 18px;
+    padding: 35px 20px;
+    margin-top: 25px;
+}
+
+.result-score {
+    font-size: 50px;
+    font-weight: bold;
+    color: #8b5cf6;
+    margin: 20px;
+}
+
+#resultMessage {
+    color: #a7afd0;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    color: #777eaa;
+    font-size: 13px;
+    padding: 25px;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .practice-box,
+    .practice-area {
+        padding: 18px;
+    }
+
+    .difficulty-buttons {
+        flex-direction: column;
+    }
+
+    .difficulty {
+        width: 100%;
+    }
+
+  }
