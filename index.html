@@ -1,0 +1,229 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SHIVA Practice AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">SHIVA <span>Practice AI</span></div>
+        <p>Class 10 CBSE Practice Platform</p>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <h1>Practice Smarter.<br><span>Prepare Better.</span></h1>
+            <p>
+                Practice Class 10 CBSE questions with multiple
+                question types and difficulty levels.
+            </p>
+        </section>
+
+        <section class="practice-box">
+
+            <h2>Start Your Practice</h2>
+
+            <!-- Subject -->
+            <div class="input-group">
+                <label>Select Subject</label>
+
+                <select id="subject">
+                    <option value="">Choose Subject</option>
+                    <option value="science">Science</option>
+                    <option value="maths">Mathematics</option>
+                    <option value="social-science">Social Science</option>
+                    <option value="english">English</option>
+                    <option value="hindi">Hindi</option>
+                </select>
+            </div>
+
+
+            <!-- Chapter -->
+            <div class="input-group">
+                <label>Select Chapter</label>
+
+                <select id="chapter">
+                    <option value="">Choose Chapter</option>
+                    <option value="chapter-1">Chapter 1</option>
+                    <option value="chapter-2">Chapter 2</option>
+                    <option value="chapter-3">Chapter 3</option>
+                    <option value="chapter-4">Chapter 4</option>
+                    <option value="chapter-5">Chapter 5</option>
+                </select>
+            </div>
+
+
+            <!-- Question Type -->
+            <div class="input-group">
+                <label>Practice Type</label>
+
+                <select id="questionType">
+
+                    <option value="">Choose Practice Type</option>
+
+                    <option value="mcq">
+                        MCQs
+                    </option>
+
+                    <option value="fillups">
+                        Fill in the Blanks
+                    </option>
+
+                    <option value="truefalse">
+                        True / False
+                    </option>
+
+                    <option value="oneword">
+                        One Word Answer
+                    </option>
+
+                    <option value="very-short">
+                        Very Short Answer
+                    </option>
+
+                    <option value="short">
+                        Short Answer
+                    </option>
+
+                    <option value="long">
+                        Long Answer
+                    </option>
+
+                    <option value="assertion">
+                        Assertion & Reason
+                    </option>
+
+                    <option value="match">
+                        Match the Following
+                    </option>
+
+                    <option value="case-based">
+                        Case-Based Questions
+                    </option>
+
+                    <option value="mixed">
+                        Mixed Practice
+                    </option>
+
+                </select>
+            </div>
+
+
+            <!-- Difficulty -->
+            <div class="input-group">
+
+                <label>Difficulty</label>
+
+                <div class="difficulty-buttons">
+
+                    <button type="button" class="difficulty">
+                        Easy
+                    </button>
+
+                    <button type="button" class="difficulty">
+                        Medium
+                    </button>
+
+                    <button type="button" class="difficulty">
+                        Hard
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Number of Questions -->
+            <div class="input-group">
+
+                <label>Number of Questions</label>
+
+                <select id="questionCount">
+
+                    <option value="5">5 Questions</option>
+                    <option value="10">10 Questions</option>
+                    <option value="15">15 Questions</option>
+                    <option value="20">20 Questions</option>
+
+                </select>
+
+            </div>
+
+
+            <button id="startPractice" class="start-btn">
+                🚀 Start Practice
+            </button>
+
+        </section>
+
+
+        <!-- Practice Area -->
+
+        <section id="practiceArea" class="practice-area">
+
+            <div class="practice-header">
+
+                <div>
+                    <span id="questionNumber">Question 1</span>
+                </div>
+
+                <div>
+                    Score: <span id="score">0</span>
+                </div>
+
+            </div>
+
+            <div id="questionContainer">
+
+                <!-- Questions will appear here -->
+
+            </div>
+
+        </section>
+
+
+        <!-- Result -->
+
+        <section id="resultArea" class="result-area">
+
+            <h2>Practice Completed 🎉</h2>
+
+            <div class="result-score">
+                <span id="finalScore">0</span>
+            </div>
+
+            <p id="resultMessage">
+                Great job!
+            </p>
+
+            <button id="newPractice" class="start-btn">
+                🔄 New Practice
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 SHIVA Practice AI
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
