@@ -1,6 +1,7 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,64 +11,138 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
+
+    <!-- ==============================
+         HEADER
+    =============================== -->
+
     <header class="header">
-        <div class="logo">SHIVA <span>Practice AI</span></div>
-        <p>Class 10 CBSE Practice Platform</p>
+
+        <div class="logo">
+            SHIVA <span>Practice AI</span>
+        </div>
+
+        <p>
+            Class 10 CBSE Practice Platform
+        </p>
+
     </header>
+
+
+
+    <!-- ==============================
+         MAIN
+    =============================== -->
 
     <main class="container">
 
+
+        <!-- HERO -->
+
         <section class="hero">
-            <h1>Practice Smarter.<br><span>Prepare Better.</span></h1>
+
+            <h1>
+                Practice Smarter.<br>
+                <span>Prepare Better.</span>
+            </h1>
+
             <p>
-                Practice Class 10 CBSE questions with multiple
-                question types and difficulty levels.
+                Practice Class 10 CBSE questions with
+                multiple question types and difficulty levels.
             </p>
+
         </section>
+
+
+
+        <!-- ==============================
+             PRACTICE SETUP
+        =============================== -->
 
         <section class="practice-box">
 
-            <h2>Start Your Practice</h2>
+            <h2>
+                Start Your Practice
+            </h2>
 
-            <!-- Subject -->
+
+
+            <!-- SUBJECT -->
+
             <div class="input-group">
-                <label>Select Subject</label>
+
+                <label for="subject">
+                    Select Subject
+                </label>
 
                 <select id="subject">
-                    <option value="">Choose Subject</option>
-                    <option value="science">Science</option>
-                    <option value="maths">Mathematics</option>
-                    <option value="social-science">Social Science</option>
-                    <option value="english">English</option>
-                    <option value="hindi">Hindi</option>
+
+                    <option value="">
+                        Choose Subject
+                    </option>
+
+                    <option value="science">
+                        Science
+                    </option>
+
+                    <option value="maths">
+                        Mathematics
+                    </option>
+
+                    <option value="social-science">
+                        Social Science
+                    </option>
+
+                    <option value="english">
+                        English
+                    </option>
+
+                    <option value="hindi">
+                        Hindi
+                    </option>
+
                 </select>
+
             </div>
 
 
-            <!-- Chapter -->
+
+            <!-- CHAPTER -->
+
             <div class="input-group">
-                <label>Select Chapter</label>
+
+                <label for="chapter">
+                    Select Chapter
+                </label>
 
                 <select id="chapter">
-                    <option value="">Choose Chapter</option>
-                    <option value="chapter-1">Chapter 1</option>
-                    <option value="chapter-2">Chapter 2</option>
-                    <option value="chapter-3">Chapter 3</option>
-                    <option value="chapter-4">Chapter 4</option>
-                    <option value="chapter-5">Chapter 5</option>
+
+                    <option value="">
+                        Choose Chapter
+                    </option>
+
                 </select>
+
             </div>
 
 
-            <!-- Question Type -->
+
+            <!-- PRACTICE TYPE -->
+
             <div class="input-group">
-                <label>Practice Type</label>
+
+                <label for="questionType">
+                    Practice Type
+                </label>
 
                 <select id="questionType">
 
-                    <option value="">Choose Practice Type</option>
+                    <option value="">
+                        Choose Practice Type
+                    </option>
 
                     <option value="mcq">
                         MCQs
@@ -114,26 +189,45 @@
                     </option>
 
                 </select>
+
             </div>
 
 
-            <!-- Difficulty -->
+
+            <!-- DIFFICULTY -->
+
             <div class="input-group">
 
-                <label>Difficulty</label>
+                <label>
+                    Difficulty
+                </label>
 
                 <div class="difficulty-buttons">
 
-                    <button type="button" class="difficulty">
+                    <button
+                        type="button"
+                        class="difficulty">
+
                         Easy
+
                     </button>
 
-                    <button type="button" class="difficulty">
+
+                    <button
+                        type="button"
+                        class="difficulty">
+
                         Medium
+
                     </button>
 
-                    <button type="button" class="difficulty">
+
+                    <button
+                        type="button"
+                        class="difficulty">
+
                         Hard
+
                     </button>
 
                 </div>
@@ -141,45 +235,83 @@
             </div>
 
 
-            <!-- Number of Questions -->
+
+            <!-- NUMBER OF QUESTIONS -->
+
             <div class="input-group">
 
-                <label>Number of Questions</label>
+                <label for="questionCount">
+                    Number of Questions
+                </label>
 
                 <select id="questionCount">
 
-                    <option value="5">5 Questions</option>
-                    <option value="10">10 Questions</option>
-                    <option value="15">15 Questions</option>
-                    <option value="20">20 Questions</option>
+                    <option value="5">
+                        5 Questions
+                    </option>
+
+                    <option value="10">
+                        10 Questions
+                    </option>
+
+                    <option value="15">
+                        15 Questions
+                    </option>
+
+                    <option value="20">
+                        20 Questions
+                    </option>
 
                 </select>
 
             </div>
 
 
-            <button id="startPractice" class="start-btn">
+
+            <!-- START -->
+
+            <button
+                id="startPractice"
+                class="start-btn">
+
                 🚀 Start Practice
+
             </button>
 
         </section>
 
 
-        <!-- Practice Area -->
 
-        <section id="practiceArea" class="practice-area">
+        <!-- ==============================
+             PRACTICE AREA
+        =============================== -->
+
+        <section
+            id="practiceArea"
+            class="practice-area">
+
 
             <div class="practice-header">
 
                 <div>
-                    <span id="questionNumber">Question 1</span>
+                    <span id="questionNumber">
+                        Question 1
+                    </span>
                 </div>
 
+
                 <div>
-                    Score: <span id="score">0</span>
+                    Score:
+                    <span id="score">
+                        0
+                    </span>
                 </div>
 
             </div>
+
+
+
+            <!-- QUESTION -->
 
             <div id="questionContainer">
 
@@ -187,31 +319,57 @@
 
             </div>
 
+
         </section>
 
 
-        <!-- Result -->
 
-        <section id="resultArea" class="result-area">
+        <!-- ==============================
+             RESULT AREA
+        =============================== -->
 
-            <h2>Practice Completed 🎉</h2>
+        <section
+            id="resultArea"
+            class="result-area">
+
+
+            <h2>
+                Practice Completed 🎉
+            </h2>
+
 
             <div class="result-score">
-                <span id="finalScore">0</span>
+
+                <span id="finalScore">
+                    0
+                </span>
+
             </div>
+
 
             <p id="resultMessage">
                 Great job!
             </p>
 
-            <button id="newPractice" class="start-btn">
+
+            <button
+                id="newPractice"
+                class="start-btn">
+
                 🔄 New Practice
+
             </button>
 
         </section>
 
+
     </main>
 
+
+
+    <!-- ==============================
+         FOOTER
+    =============================== -->
 
     <footer>
 
@@ -222,8 +380,15 @@
     </footer>
 
 
+
+    <!-- ==============================
+         JAVASCRIPT
+    =============================== -->
+
     <script src="script.js"></script>
 
+
 </body>
+
 </html>
 ```
